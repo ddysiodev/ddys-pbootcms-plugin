@@ -195,8 +195,14 @@ for (const label of labels) {
 assert(labelsPhp.includes('ddys_open_parse_labels'), 'PbootCMS label parser is missing');
 assert(labelsPhp.includes('requestform'), 'requestform label alias is missing');
 assert(renderPhp.includes('ddys_open_render_full_page'), 'standalone full page renderer is missing');
+assert(renderPhp.includes("isset($dayData['shows'])"), 'calendar renderer must handle days.*.shows payloads');
+assert(renderPhp.includes("'cn_name'"), 'card renderer must handle calendar cn_name titles');
+assert(renderPhp.includes("'episode'"), 'card renderer must show calendar episode metadata');
+assert(renderPhp.includes("'related'") && renderPhp.includes("'series'"), 'list renderer must handle related API payload groups');
 assert(clientPhp.includes('ddys_open_proxy_response') && clientPhp.includes('ddys_open_handle_request_form'), 'proxy/request handlers are missing');
 assert(securityPhp.includes('core\\basic\\Url') && securityPhp.includes('ddys_open_pboot_url'), 'PbootCMS URL fallback is missing');
+assert(/function ddys_open_get[\s\S]*isset\(\$_GET\[\$key\]\)[\s\S]*function_exists\('get'\)/.test(securityPhp), 'GET reader must prefer raw superglobal before Pboot filtering');
+assert(/function ddys_open_post[\s\S]*isset\(\$_POST\[\$key\]\)[\s\S]*function_exists\('post'\)/.test(securityPhp), 'POST reader must prefer raw superglobal before Pboot filtering');
 assert(homeController.includes('class DdysController') && homeController.includes('public function api()') && homeController.includes('public function request()'), 'frontend controller is incomplete');
 assert(adminController.includes('class DdysOpenController') && adminController.includes('ddys_open_admin_logged_in') && adminController.includes('ddys-pbootcms-label-output'), 'admin controller is incomplete');
 assert(extExample.includes('ExtLabelController') && extExample.includes('ddys_open_parse_labels'), 'ExtLabel example is incomplete');
@@ -238,4 +244,3 @@ if (failures.length > 0) {
 }
 
 console.log(`PbootCMS plugin check passed (${allFiles.length} files).`);
-

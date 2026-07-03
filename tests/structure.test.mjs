@@ -88,9 +88,29 @@ test('request form stays server-side and guarded', async () => {
   assert.match(frontend, /!window\.fetch/);
 });
 
+test('calendar renderer supports real API day payloads', async () => {
+  const render = await read('apps/ddys_open/render.php');
+  assert.match(render, /isset\(\$dayData\['shows'\]\)/);
+  assert.match(render, /cn_name/);
+  assert.match(render, /episode/);
+  assert.match(render, /is_premiere/);
+  assert.match(render, /is_finale/);
+});
+
+test('list renderer supports grouped related payloads', async () => {
+  const render = await read('apps/ddys_open/render.php');
+  assert.match(render, /'related'/);
+  assert.match(render, /'series'/);
+});
+
+test('request readers avoid mutating API query values', async () => {
+  const security = await read('apps/ddys_open/security.php');
+  assert.match(security, /function ddys_open_get[\s\S]*isset\(\$_GET\[\$key\]\)[\s\S]*function_exists\('get'\)/);
+  assert.match(security, /function ddys_open_post[\s\S]*isset\(\$_POST\[\$key\]\)[\s\S]*function_exists\('post'\)/);
+});
+
 test('runtime files are ignored', async () => {
   const gitignore = await read('.gitignore');
   assert.match(gitignore, /data\/ddys_open\/config\.php/);
   assert.match(gitignore, /data\/ddys_open\/cache\/\*\.php/);
 });
-

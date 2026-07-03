@@ -13,7 +13,7 @@ function ddys_open_to_list($data)
     if (!is_array($data)) {
         return array();
     }
-    foreach (array('items', 'movies', 'results', 'shares', 'requests', 'activities', 'comments') as $key) {
+    foreach (array('items', 'movies', 'results', 'related', 'series', 'shares', 'requests', 'activities', 'comments') as $key) {
         if (isset($data[$key]) && is_array($data[$key])) {
             return $data[$key];
         }
@@ -82,15 +82,21 @@ function ddys_open_render_card($item, $settings)
     if (!is_array($item)) {
         return '';
     }
-    $title = ddys_open_item_value($item, array('title', 'name', 'username'), 'Untitled');
+    $title = ddys_open_item_value($item, array('title', 'name', 'cn_name', 'en_name', 'username', 'search_keyword'), 'Untitled');
     $poster = ddys_open_safe_media_url(ddys_open_item_value($item, array('poster', 'cover', 'avatar'), ''));
     $url = ddys_open_site_url($item);
     $target = $settings['target'];
     $meta = array();
-    foreach (array('year', 'type', 'type_code', 'region', 'quality') as $key) {
+    foreach (array('year', 'type', 'type_code', 'region', 'quality', 'episode') as $key) {
         if (!empty($item[$key])) {
             $meta[] = $item[$key];
         }
+    }
+    if (!empty($item['is_premiere'])) {
+        $meta[] = '首播';
+    }
+    if (!empty($item['is_finale'])) {
+        $meta[] = '季终';
     }
     if (!empty($item['rating'])) {
         $meta[] = '评分 ' . $item['rating'];
@@ -215,14 +221,33 @@ function ddys_open_render_calendar($payload, $args = array())
     }
     $settings = ddys_open_settings();
     $html = '<div class="ddys-pbootcms-calendar">';
-    foreach ($days as $day => $items) {
-        $html .= '<section class="ddys-pbootcms-calendar-day"><h3>' . ddys_open_h($day) . '</h3><div class="ddys-pbootcms-items">';
-        if (is_array($items)) {
+    foreach ($days as $day => $dayData) {
+        $label = (string)$day;
+        $items = $dayData;
+        if (is_array($dayData) && (isset($dayData['shows']) || isset($dayData['day']) || isset($dayData['weekday']))) {
+            $labelParts = array();
+            if (!empty($dayData['day'])) {
+                $labelParts[] = (string)$dayData['day'] . '日';
+            }
+            if (!empty($dayData['weekday'])) {
+                $labelParts[] = (string)$dayData['weekday'];
+            }
+            if (!empty($labelParts)) {
+                $label = implode(' ', $labelParts);
+            }
+            $items = isset($dayData['shows']) && is_array($dayData['shows']) ? $dayData['shows'] : array();
+        }
+        $html .= '<section class="ddys-pbootcms-calendar-day"><h3>' . ddys_open_h($label) . '</h3>';
+        if (is_array($items) && !empty($items)) {
+            $html .= '<div class="ddys-pbootcms-items">';
             foreach ($items as $item) {
                 $html .= ddys_open_render_card($item, $settings);
             }
+            $html .= '</div>';
+        } else {
+            $html .= '<p class="ddys-pbootcms-empty-inline">暂无更新。</p>';
         }
-        $html .= '</div></section>';
+        $html .= '</section>';
     }
     $html .= '</div>';
     return ddys_open_wrap($html, $args);

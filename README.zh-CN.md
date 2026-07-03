@@ -24,7 +24,7 @@
 
 ## 安装
 
-1. 下载 Release 中的 `ddys-pbootcms-plugin-v0.1.0.zip`。
+1. 下载 Release 中的 `ddys-pbootcms-plugin-v0.1.1.zip`。
 2. 解压后把 `apps/`、`static/`、`data/` 上传到 PbootCMS 站点根目录。
 3. 打开后台地址 `/admin.php/DdysOpen/index` 或 `/index.php/admin/DdysOpen/index`，保存 API 地址、缓存和展示配置。
 4. 执行“测试低端影视 API”，确认站点服务器可以访问接口。
@@ -209,4 +209,3 @@ node --test tests/*.test.mjs
 ```
 
 检查覆盖目录结构、控制器、标签覆盖、短代码覆盖、ExtLabel 示例、伪静态文档、图标尺寸、运行时文件排除和敏感文本。
-

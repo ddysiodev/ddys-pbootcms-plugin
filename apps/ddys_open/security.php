@@ -114,24 +114,30 @@ function ddys_open_normalize_settings($settings)
 
 function ddys_open_get($key, $default = '')
 {
+    if (isset($_GET[$key])) {
+        return ddys_open_request_scalar($_GET[$key], $default);
+    }
     if (function_exists('get')) {
         $value = get($key);
         if ($value !== null && $value !== '') {
             return ddys_open_request_scalar($value, $default);
         }
     }
-    return isset($_GET[$key]) ? ddys_open_request_scalar($_GET[$key], $default) : $default;
+    return $default;
 }
 
 function ddys_open_post($key, $default = '')
 {
+    if (isset($_POST[$key])) {
+        return ddys_open_request_scalar($_POST[$key], $default);
+    }
     if (function_exists('post')) {
         $value = post($key);
         if ($value !== null && $value !== '') {
             return ddys_open_request_scalar($value, $default);
         }
     }
-    return isset($_POST[$key]) ? ddys_open_request_scalar($_POST[$key], $default) : $default;
+    return $default;
 }
 
 function ddys_open_request_scalar($value, $default = '')
@@ -438,4 +444,3 @@ function ddys_open_admin_logged_in()
     }
     return !empty($_SESSION['sid']);
 }
-

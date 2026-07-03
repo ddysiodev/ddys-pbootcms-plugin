@@ -24,7 +24,7 @@ Official PbootCMS plugin for the [DDYS](https://ddys.io/) API. It adds DDYS temp
 
 ## Installation
 
-1. Download `ddys-pbootcms-plugin-v0.1.0.zip` from Releases.
+1. Download `ddys-pbootcms-plugin-v0.1.1.zip` from Releases.
 2. Upload `apps/`, `static/`, and `data/` to the PbootCMS site root.
 3. Open `/admin.php/DdysOpen/index` or `/index.php/admin/DdysOpen/index`, then save API, cache, display, and request-form settings.
 4. Run “Test DDYS API” in the plugin admin page.
@@ -197,4 +197,3 @@ node --test tests/*.test.mjs
 ```
 
 Checks cover directory layout, controllers, tag coverage, shortcode coverage, ExtLabel example, rewrite docs, icon dimensions, ignored runtime files, and sensitive wording.
-

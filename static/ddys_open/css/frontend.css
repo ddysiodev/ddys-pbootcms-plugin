@@ -218,6 +218,11 @@
   color: #64748b;
 }
 
+.ddys-pbootcms-empty-inline {
+  margin: 0;
+  color: #64748b;
+}
+
 @media (max-width: 860px) {
   .ddys-pbootcms-items {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -243,4 +248,3 @@
     grid-template-columns: 1fr;
   }
 }
-

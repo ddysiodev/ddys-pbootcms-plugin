@@ -4,7 +4,7 @@ if (!defined('DDYS_OPEN_ID')) {
     define('DDYS_OPEN_ID', 'ddys_open');
 }
 if (!defined('DDYS_OPEN_VERSION')) {
-    define('DDYS_OPEN_VERSION', '0.1.0');
+define('DDYS_OPEN_VERSION', '0.1.1');
 }
 if (!defined('DDYS_OPEN_API_DEFAULT')) {
     define('DDYS_OPEN_API_DEFAULT', 'https://ddys.io/api/v1');
@@ -49,4 +49,3 @@ function ddys_open_app_path($path = '')
 {
     return DDYS_OPEN_APP_DIR . ($path === '' ? '' : '/' . ltrim($path, '/'));
 }
-
