@@ -1,0 +1,171 @@
+body.ddys-pbootcms-admin-page {
+  margin: 0;
+  background: #f5f7f8;
+  color: #17202a;
+  font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.ddys-pbootcms-admin {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.ddys-pbootcms-admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ddys-pbootcms-admin h1,
+.ddys-pbootcms-admin h2 {
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.ddys-pbootcms-admin p {
+  margin: 0 0 12px;
+  color: #64748b;
+}
+
+.ddys-pbootcms-panel {
+  border: 1px solid #dbe3e8;
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.ddys-pbootcms-notice,
+.ddys-pbootcms-error {
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.ddys-pbootcms-notice {
+  color: #065f46;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.ddys-pbootcms-error {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.ddys-pbootcms-actions,
+.ddys-pbootcms-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 10px 0 14px;
+}
+
+.ddys-pbootcms-grid,
+.ddys-pbootcms-generator {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ddys-pbootcms-admin label {
+  display: grid;
+  gap: 5px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.ddys-pbootcms-checks label {
+  display: inline-flex;
+  grid-template-columns: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.ddys-pbootcms-admin input,
+.ddys-pbootcms-admin select,
+.ddys-pbootcms-admin textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.ddys-pbootcms-admin input[type="checkbox"] {
+  width: auto;
+}
+
+.ddys-pbootcms-admin textarea {
+  min-height: 86px;
+  resize: vertical;
+}
+
+.ddys-pbootcms-admin table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ddys-pbootcms-admin th,
+.ddys-pbootcms-admin td {
+  border-bottom: 1px solid #e5ebef;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ddys-pbootcms-admin th {
+  background: #f8fafc;
+}
+
+.ddys-pbootcms-admin .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #17202a;
+  background: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ddys-pbootcms-admin .button.primary {
+  border-color: #0f766e;
+  color: #fff;
+  background: #0f766e;
+}
+
+.ddys-pbootcms-admin pre {
+  overflow: auto;
+  border: 1px solid #dbe3e8;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 12px;
+}
+
+@media (max-width: 900px) {
+  .ddys-pbootcms-grid,
+  .ddys-pbootcms-generator {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .ddys-pbootcms-admin {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .ddys-pbootcms-grid,
+  .ddys-pbootcms-generator {
+    grid-template-columns: 1fr;
+  }
+}
+

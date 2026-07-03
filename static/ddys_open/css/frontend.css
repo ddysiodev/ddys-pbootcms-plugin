@@ -1,0 +1,246 @@
+.ddys-pbootcms-page {
+  margin: 0;
+  background: #f5f7f8;
+  color: #17202a;
+  font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.ddys-pbootcms-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.ddys-pbootcms-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.ddys-pbootcms-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ddys-pbootcms-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ddys-pbootcms-nav a {
+  border: 1px solid #d8e0e6;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #334155;
+  background: #fff;
+  text-decoration: none;
+}
+
+.ddys-pbootcms-nav a.is-active {
+  border-color: #0f766e;
+  color: #0f766e;
+  background: #ecfdf5;
+}
+
+.ddys-pbootcms {
+  --ddys-pbootcms-gap: 16px;
+  color: #17202a;
+}
+
+.ddys-pbootcms-items {
+  display: grid;
+  grid-template-columns: repeat(var(--ddys-pbootcms-columns, 4), minmax(0, 1fr));
+  gap: var(--ddys-pbootcms-gap);
+}
+
+.ddys-pbootcms-layout-list .ddys-pbootcms-items,
+.ddys-pbootcms-layout-compact .ddys-pbootcms-items {
+  grid-template-columns: 1fr;
+}
+
+.ddys-pbootcms-card {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  min-width: 0;
+  border: 1px solid #dbe3e8;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.ddys-pbootcms-layout-grid .ddys-pbootcms-card {
+  grid-template-columns: 1fr;
+}
+
+.ddys-pbootcms-poster {
+  aspect-ratio: 2 / 3;
+  background: #e8eef2;
+  overflow: hidden;
+}
+
+.ddys-pbootcms-poster img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.ddys-pbootcms-card-body {
+  min-width: 0;
+  padding: 12px;
+}
+
+.ddys-pbootcms-title {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.ddys-pbootcms-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ddys-pbootcms-title a:hover {
+  color: #0f766e;
+}
+
+.ddys-pbootcms-meta,
+.ddys-pbootcms-summary {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.ddys-pbootcms-summary {
+  margin-top: 8px;
+}
+
+.ddys-pbootcms-description,
+.ddys-pbootcms-sources,
+.ddys-pbootcms-calendar-day,
+.ddys-pbootcms-search,
+.ddys-pbootcms-request-form,
+.ddys-pbootcms-empty,
+.ddys-pbootcms-error {
+  border: 1px solid #dbe3e8;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+}
+
+.ddys-pbootcms-detail {
+  display: grid;
+  gap: 16px;
+}
+
+.ddys-pbootcms-source-group h3,
+.ddys-pbootcms-calendar-day h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.ddys-pbootcms-resource {
+  margin: 6px 0;
+}
+
+.ddys-pbootcms-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ddys-pbootcms-tags span {
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: #0f766e;
+  background: #ecfdf5;
+}
+
+.ddys-pbootcms-search,
+.ddys-pbootcms-request-form {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ddys-pbootcms-search {
+  grid-template-columns: minmax(0, 1fr) 140px auto;
+}
+
+.ddys-pbootcms-request-form label {
+  display: grid;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.ddys-pbootcms input,
+.ddys-pbootcms select,
+.ddys-pbootcms textarea,
+.ddys-pbootcms button {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.ddys-pbootcms button {
+  width: auto;
+  border-color: #0f766e;
+  color: #fff;
+  background: #0f766e;
+  cursor: pointer;
+}
+
+.ddys-pbootcms-status {
+  margin: 0;
+  color: #0f766e;
+}
+
+.ddys-pbootcms-error {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.ddys-pbootcms-empty {
+  color: #64748b;
+}
+
+@media (max-width: 860px) {
+  .ddys-pbootcms-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ddys-pbootcms-search {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .ddys-pbootcms-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 14px;
+  }
+
+  .ddys-pbootcms-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ddys-pbootcms-items {
+    grid-template-columns: 1fr;
+  }
+}
+

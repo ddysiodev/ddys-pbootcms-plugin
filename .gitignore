@@ -1,0 +1,7 @@
+data/ddys_open/config.php
+data/ddys_open/config.php.tmp
+data/ddys_open/cache/*.php
+*.zip
+*.log
+*.bak
+
